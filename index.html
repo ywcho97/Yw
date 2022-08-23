@@ -1,12 +1,972 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test</title>
+    <title>YounG PortFolio</title>
+
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/reset.css">
+    <script type="text/javascript" src="./js/jquery-latest.min.js"></script><!-- //제이쿼리버전 -->
+    <script type="text/javascript" src="./js/jquery.mobile.custom.js"></script><!-- //모바일_메뉴필요소스 -->
+    <script type="text/javascript" src="./js/common.js"></script> <!-- //모바일_메뉴반응 -->
+    <!-- <script type="text/javascript" src="./js/slide_banner.js"></script> -->
+    <!--애니메이트효과적용-->
+    <link rel="stylesheet" href="./js/grid/animate.css" />
+    <script src="./js/grid/aos.js"></script>
+
+    <script>
+        $( document ).ready( function () {
+            AOS.init();
+        } );
+    </script>
+
+    <script>
+        jQuery(document).ready(function () {
+               // 윈도우 로드 후 부드럽게 보여주기
+               jQuery(window).load(function () {
+                   fadeSlider();
+                   fadeTo();
+                   return false;
+               });
+    
+        
+           /* 메뉴 */
+           $(function () {                 
+                $(window).scroll(function () {
+                    if ($(this).scrollTop() > 500) { // 스크롤 내릴 표시
+                        $('.head').css('border-bottom','1px solid #000')
+                    } else {
+                        $('.head').css('border-bottom','none')
+                    }
+                });
+
+                /* $(window).scroll(function () {
+                    if ($(this).scrollTop() > 1) { // 스크롤 내릴 표시
+                        $('.mob_menu').css('background-color','#40885d')
+                    } else {
+                        $('.mob_menu').css('background-color','rgba(64,136,93,0.7)')
+                    }
+                }); */
+
+                $('.content2_tab>ul>li').click(function(){
+                    $('.content2_tab>ul>li').removeClass('select_on');
+                    $(this).addClass('select_on')
+                });
+                $('.content2_tab>ul>li').click(function(){
+                    $('.content2_tab>ul>li').removeClass('select_on');
+                    $(this).addClass('select_on')
+                });
+
+                $('.select1').click(function(){
+                    $('.tab_wrap').css('display','none')
+                    $('.tab1').css('display','block')
+                })
+                $('.select2').click(function(){
+                    $('.tab_wrap').css('display','none')
+                    $('.tab2').css('display','block')
+                })
+                $('.select3').click(function(){
+                    $('.tab_wrap').css('display','none')
+                    $('.tab3').css('display','block')
+                })
+                $('.select4').click(function(){
+                    $('.tab_wrap').css('display','none')
+                    $('.tab4').css('display','block')
+                })
+
+                $('.tab_wrap ul li').mouseover(function(){
+                    $(this).find('.tab_title').css('display','block')
+                })
+                $('.tab_wrap ul li').mouseleave(function(){
+                    $('.tab_title').css('display','none')
+                })
+                
+            });
+            // data-aos="fade-up" data-aos-duration="800"
+        });
+
+        /* 팝업 */
+        $(function(){
+            //컴퓨터이미지 호버하면 자동 스크롤
+            $('.css_img .main_page').hover(function(){
+                var ah = $(this).find('a').innerHeight();
+                var img = $(this).find('img');
+                var imgh = $(this).find('img').innerHeight();
+
+                img.stop().animate({top:ah-imgh},5000);
+
+            },function(){
+                var ah = $(this).find('a').innerHeight();
+                var img = $(this).find('img');
+                var imgh = $(this).find('img').innerHeight();
+
+                img.stop().animate({top:0},5000);
+            });
+            
+        });
+        $(function(){
+            $('.close a').click(function(){
+                $('.popup').css('display','none')
+                $('html, body').removeClass('hidden');
+                $('.head').css('display','block');
+                $('.content1').css('display','block');
+            });
+            $('.tab1 ul li').click(function(){
+                $('html, body').addClass('hidden');
+                $('.head').css('display','none');
+                $('.content1').css('display','none');
+            });
+            $('.tab1_1').click(function(){
+                $('.popup1').css('display','block')
+            })
+            $('.tab1_2').click(function(){
+                $('.popup2').css('display','block')
+            })
+            $('.tab1_3').click(function(){
+                $('.popup3').css('display','block')
+            })
+            $('.tab1_4').click(function(){
+                $('.popup4').css('display','block')
+            })
+            $('.tab1_5').click(function(){
+                $('.popup5').css('display','block')
+            })
+            $('.tab1_6').click(function(){
+                $('.popup6').css('display','block')
+            })
+            $('.tab1_7').click(function(){
+                $('.popup7').css('display','block')
+            })
+            $('.tab1_8').click(function(){
+                $('.popup8').css('display','block')
+            })
+            $('.tab1_9').click(function(){
+                $('.popup9').css('display','block')
+            })
+        });
+    </script>
+    
 </head>
+
+
 <body>
-    안녕하세요 원페이지 포폴 제작중입니다.
+    <div class="wrap">
+        <div class="head">
+            <div class="head_wrap">
+                <div class="logo">
+                    <img src="./img/logo.png" alt="">                    
+                </div>
+                <div class="menu">
+                    <ul>
+                        <li><a href="#content1">ABOUT ME</a></li>
+                        <li>｜</li>
+                        <li><a href="#content2">PORTFOLIO</a></li>
+                        <li>｜</li>
+                        <li><a href="#content3">CONTACT</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="main">
+            <div class="main_img">
+                <img src="./img/main_text.png" alt="" data-aos="fade-up" data-aos-duration="800">
+            </div>
+        </div>
+        <div class="content">
+            <div class="content_box content1" id="content1" data-aos="fade-up" data-aos-duration="800">
+                <div class="content_wrap">
+                    <div class="content_tit">
+                        <h2>ABOUT ME</h2>
+                    </div>
+                    <div class="content_subject">
+                        <div class="propfile_img">
+                            <img src="./img/sunset_me.jpg" alt="">
+                        </div>
+                        <div class="content1_cont">
+                            <div class="content1_cont_wrap content1_cont1">
+                                <h2>PROFILE</h2>
+                                <ul>
+                                    <li>이름 : 조영우</li>
+                                    <li>생년월일 : 1997.03.30</li>
+                                </ul>
+                            </div>
+                            <div class="content1_cont_wrap content1_cont2">
+                                <h2>HISTORY</h2>
+                                <ul>
+                                    <li><span>2016.02</span>평촌경영고등학교 졸업</li>
+                                    <li><span>2018.10</span>육군 병장 만기제대</li>
+                                    <li><span>2020.02</span>신안산대학교 시각디자인과 졸업</li>
+                                    <li><span>2021.04</span>그린컴퓨터아트학원 웹퍼블리싱 과정 수료</li>
+                                    <li><span>2021.05 ~ 2022.07</span>디자인펌킨 웹디자이너 & 웹퍼블리셔로 근무</li>
+                                </ul>
+                            </div>
+                            <div class="content1_cont_wrap content1_cont3">
+                                <h2>CERTIFICATE</h2>
+                                <ul>
+                                    <!-- <li><span>2015</span>GTQ 1급</li> -->
+                                    <li><span>2015</span>컴퓨터그래픽스운용기능사 </li>
+                                    <li><span>2021</span>웹디자인기능사</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="popups">
+                <div class="popup popup1">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://www.cifc.or.kr" target="_blank"><img src="img/pc.png" alt=""></a></div>
+                                <div class="main_page cifc_img">
+                                    <a href="#" target="_blank"><img src="img/content2_img1.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>해외금융협력회</h2>
+                                        <div class="page_btn">
+                                            <a href="https://www.cifc.or.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인 80%, 메뉴, 협의회소개, 행사안내-참가신청, 간행물-보고서, 알림마당-갤러리, 이용약관, 개인정보처리방침</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li>
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://www.cifc.or.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup2">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://wzine.kr/sscf_mapl/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img2.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>수원도시재단 MAPL</h2>
+                                        <div class="page_btn">
+                                            <a href="https://wzine.kr/sscf_mapl/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인, 공동체플랫폼, 사회적경제플랫폼, 집수리, 공간플랫폼</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <li class="page_btn"><a href="https://wzine.kr/sscf_mapl/" target="_blank">홈페이지 바로가기</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup3">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://www.uplusvote.com/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img3.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>유보트</h2>
+                                        <div class="page_btn">
+                                            <a href="https://www.uplusvote.com/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인, 로그인, 회원가입, 1:1문의, FAQ, 공지사항, 견적문의, 마이페이지, 관리자 페이지</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://www.uplusvote.com/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup4">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://ecefair.ajou.ac.kr/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img4.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>아주대학교 산학박람회</h2>
+                                        <div class="page_btn">
+                                            <a href="https://ecefair.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인, 작품목록, 작품보기</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://ecefair.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup5">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://paran.ajou.ac.kr/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img5.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>아주대학교 파란학기제</h2>
+                                        <div class="page_btn">
+                                            <a href="https://paran.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인, 성과물보기</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://paran.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup6">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://softcon.ajou.ac.kr/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img6.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>아주대학교 소프트콘</h2>
+                                        <div class="page_btn">
+                                            <a href="https://softcon.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인, 작품보기, 이전학기 작품</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://softcon.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup7">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="http://consultant.ajou.ac.kr/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img7.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>아주대학교 VR/AR</h2>
+                                        <div class="page_btn">
+                                            <a href="http://consultant.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인 - 교수님 소개, 메인 슬라이드, 메뉴, 푸터</p>
+                                            </li>
+                                            <li>
+                                                <li>
+                                                    <span>▶ 작업내용</span>
+                                                    <ul>
+                                                        <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                        <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                        <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                        <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                        <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                    </ul>
+                                                </li>
+                                                <!-- <li class="page_btn"><a href="http://consultant.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup8">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://iceecap.ajou.ac.kr/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img8.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>아주대학교 공학교육혁신센터</h2>
+                                        <div class="page_btn">
+                                            <a href="https://iceecap.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메인</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://iceecap.ajou.ac.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup popup9">
+                    <div class="popup_wrap">
+                        <div class="scroll">
+                            <div class="css_img">
+                                <div class="pc_img"><a href="https://ggpibank.or.kr/" target="_blank"><img src="img/pc.png" width="800" height="450" alt=""></a></div>
+                                <div class="main_page">
+                                    <a href="#" target="_blank"><img src="img/content2_img9.png" width="640" alt=""></a>
+                                </div>
+                                <div class="popup_text">
+                                    <div class="popup_tit">
+                                        <h2>경기공공보건의료지원단</h2>
+                                        <div class="page_btn">
+                                            <a href="https://ggpibank.or.kr/" target="_blank">홈페이지 바로가기</a>
+                                        </div>
+                                    </div>
+                                    <div class="popup_cont">
+                                        <ul>
+                                            <!-- <li>
+                                                <span>▶ 디자인</span><p>메뉴디자인 <a href="./img/ppt.pdf" target="_blank">PDF 보기</a></p>
+                                            </li> -->
+                                            <li>
+                                                <span>▶ 퍼블리싱</span><p>메뉴, 서비스소개-지표뱅크 가이드, 보건의료 모니터링-경기도 시군구 프로파일</p>
+                                            </li>
+                                            <li>
+                                                <span>▶ 작업내용</span>
+                                                <ul>
+                                                    <li><img src="./img/icon1.png" width="50" alt=""><br>PC</li>
+                                                    <li><img src="./img/icon2.png" width="40" alt=""><br>TABLET</li>
+                                                    <li><img src="./img/icon3.png" width="40" alt=""><br>MOBILE</li>
+                                                    <li><img src="./img/icon4.png" width="50" alt=""><br>PUBLISHING</li>
+                                                    <!-- <li><img src="./img/design.png" width="40" alt=""><br>DESIGN</li> -->
+                                                </ul>
+                                            </li>
+                                            <!-- <li class="page_btn"><a href="https://ggpibank.or.kr/" target="_blank">홈페이지 바로가기</a></li> -->
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="close">
+                            <a href="#none"><img src="./img/close.png" alt="" width="100"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="content_box content2" id="content2" data-aos="fade-up" data-aos-duration="800">
+                <div class="content_wrap">
+                    <div class="content_tit">
+                        <h2>PORTFOLIO</h2>
+                    </div>
+                    <div class="content2_tab">
+                        <ul>
+                            <li class="select_on select1"><a href="#none">Web<br>Publish</a></li>
+                            <li class="select2"><a href="#none">Webzine</a></li>
+                            <li class="select3"><a href="#none">Design</a></li>
+                            <li class="select4"><a href="#none">Academy</a></li>
+                        </ul>
+                    </div>
+                    <div class="tab1 tab_wrap">
+                        <ul>
+                            <li class="tab1_1">
+                                <a href="#none">
+                                    <img src="./img/content2_img1.png" alt="">
+                                    <div class="tab_title"><p>해외금융협력협의회</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_2">
+                                <a href="#none">
+                                    <img src="./img/content2_img2.png" alt="">
+                                    <div class="tab_title"><p>수원도시재단</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_3">
+                                <a href="#none">
+                                    <img src="./img/content2_img3.png" alt=""
+                                    ><div class="tab_title"><p>유보트</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_4">
+                                <a href="#none">
+                                    <img src="./img/content2_img4.png" alt="">
+                                    <div class="tab_title"><p>아주대학교 산학박람회</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_5">
+                                <a href="#none">
+                                    <img src="./img/content2_img5.png" alt="">
+                                    <div class="tab_title"><p>아주대학교 파란학기제</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_6">
+                                <a href="#none">
+                                    <img src="./img/content2_img6.png" alt="">
+                                    <div class="tab_title"><p>아주대학교 소프트콘</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_7">
+                                <a href="#none">
+                                    <img src="./img/content2_img7.png" alt="">
+                                    <div class="tab_title"><p>아주대학교 vr/ar</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_8">
+                                <a href="#none">
+                                    <img src="./img/content2_img8.png" alt="">
+                                    <div class="tab_title"><p>아주대학교 공학교육센터</p></div>
+                                </a>
+                            </li>
+                            <li class="tab1_9">
+                                <a href="#none">
+                                    <img src="./img/content2_img9.png" alt="" style="height: 100%;">
+                                    <div class="tab_title"><p>경기공공보건의료단</p></div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="tab2 tab_wrap">
+                        <colgroup>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                            <col>
+                        </colgroup>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>작업한 기관</th>
+                                    <th>주소</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                                <tr>
+                                    <th rowspan="3"><img src="./img/content2_logo2.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/sscf_agencypromotion/">https://wzine.kr/sscf_agencypromotion/</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/sscf2/">https://wzine.kr/sscf2/</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/sscf2_villagemap/">https://wzine.kr/sscf2_villagemap/</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo1.png" alt=""></th>
+                                    <td><a target="_blank" href="http://wzine.kr/yongin/202107/index.html">2021년 7월 ~ 2022년 6월 웹진</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="5"><img src="./img/content2_logo3.png" alt=""></th>
+                                    <td><a target="_blank" href="http://openschool.kedi.re.kr/files/webzine/94/WEB/index.html">http://openschool.kedi.re.kr/files/webzine/94/WEB/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="http://openschool.kedi.re.kr/files/webzine/95/WEB/index.html">http://openschool.kedi.re.kr/files/webzine/95/WEB/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://www.wee.go.kr/newsletter/202107/index.html">https://www.wee.go.kr/newsletter/202107/index.html (wee 웹진 58호 ~ 62호)</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://www.kedi.re.kr/edzine/ednews/">https://www.kedi.re.kr/edzine/ednews/ (교육개발 웹진 vol.48.no2 ~ vol.49.no2)</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://www.hub4u.or.kr/usr/portal/board/161/commonBbsDetail.do?p_pageno=1&p_listscale=6&p_bbs_id=161&p_srch_type=p_srch_pst_title_cntnt&p_pst_id=8092&p_srch_text=">탈북청소년교육지원센터 웹진</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2"><img src="./img/content2_logo4.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/anseong2021/#book5/page1">우리고장안성 2021</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/anseong2022/#book5/page1">우리고장안성 2022</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="8"><img src="./img/content2_logo5.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/goe_playView/index03.html">https://wzine.kr/goe_playView/index03.html (놀이뷰 3호 ~ 4호)</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/goe_international_school/index.html">https://wzine.kr/goe_international_school/index.html (한국어, 영어, 중국어, 러시아어, 베트남어)</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/goe_elementary2021/index.html">https://wzine.kr/goe_elementary2021/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/goe_elementary2021_@/index.html">https://wzine.kr/goe_elementary2021_2/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="http://wzine.kr/goe_middle_edu/">http://wzine.kr/goe_middle_edu/ (수업으로 미래를 잇다 웹진)</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/goe_futureclass/">https://wzine.kr/goe_futureclass/</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/goe_greensmart/index.html">https://wzine.kr/goe_greensmart/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/goehakbumo/index_.html">https://wzine.kr/goehakbumo/index_.html</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2"><img src="./img/content2_logo6.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/shingu_admission2022/index.html">https://wzine.kr/shingu_admission2022/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/shingu_admission2023/index.html">https://wzine.kr/shingu_admission2023/index.html (모집요강까지만 작업)</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="8"><img src="./img/content2_logo7.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/ajou_law2021/index.html">https://wzine.kr/ajou_law2021/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/ajou_nurse/index.html">https://wzine.kr/ajou_nurse/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/ajou_IT/">https://wzine.kr/ajou_IT/</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/ajou_academic_2022/index1.html">https://wzine.kr/ajou_academic_2022/index1.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/ajou_academic_2022/index2.html">https://wzine.kr/ajou_academic_2022/index2.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="http://wzine.kr/ajou_2022/index.html">http://wzine.kr/ajou_2022/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="http://wzine.kr/ajou_2023/index.html">http://wzine.kr/ajou_2023/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="http://wzine.kr/ajou_san/2022_b.html">http://wzine.kr/ajou_san/2022_b.html</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo8.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/yonsei/index.html">https://wzine.kr/yonsei/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo9.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/suwon_high/index.html">https://wzine.kr/suwon_high/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2"><img src="./img/content2_logo10.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/sema_high/">https://wzine.kr/sema_high/</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/sema/12/">https://wzine.kr/sema/12/</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo11.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/hwaseong_village_2021/">https://wzine.kr/hwaseong_village_2021/</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo12.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/goeyc_SocialStudies2/">https://wzine.kr/goeyc_SocialStudies2/</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="4"><img src="./img/content2_logo13.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/khu_promotion/#book5/page1">https://wzine.kr/khu_promotion/#book5/page1</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="http://wzine.kr/khu_capstone/">http://wzine.kr/khu_capstone/</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/khu_gstm/index.html">https://wzine.kr/khu_gstm/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/khu_tech/">https://wzine.kr/khu_tech/</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo14.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/nier_area/index.html">https://wzine.kr/nier_area/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo15.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/hansae_guide/">https://wzine.kr/hansae_guide/</a></td>
+                                </tr>
+                                <!-- <tr>
+                                    <th><img src="./img/content2_logo16.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/smh_invite/index.html">https://wzine.kr/smh_invite/index.html (초대장)</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo17.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/gie_symposium2022/">https://wzine.kr/gie_symposium2022/ (초대장)</a></td>
+                                </tr> -->
+                                <tr>
+                                    <th><img src="./img/content2_logo16.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/ayun_strory2022/">https://wzine.kr/ayun_strory2022/</a></td>
+                                </tr>
+                                <tr>
+                                    <th><img src="./img/content2_logo17.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/goeay_high/index.html">https://wzine.kr/goeay_high/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <th rowspan="2"><img src="./img/content2_logo18.png" alt=""></th>
+                                    <td><a target="_blank" href="https://wzine.kr/suwon_learning/2022/spring/index.html">https://wzine.kr/suwon_learning/2022/spring/index.html</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a target="_blank" href="https://wzine.kr/suwon_learning/2022/summer/index.html">https://wzine.kr/suwon_learning/2022/summer/index.html</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <!-- <ul>
+                            <li><a href="#none"><img src="./img/content2_logo1.png" alt=""><div class="tab_title"><p>용인IL센터</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo2.png" alt=""><div class="tab_title"><p>수원도시재단</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo3.png" alt=""><div class="tab_title"><p>한국교육개발원</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo4.png" alt=""><div class="tab_title"><p>경기도안성교육지원청</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo5.png" alt=""><div class="tab_title"><p>경기도교육청</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo6.png" alt=""><div class="tab_title"><p>신구대학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo7.png" alt=""><div class="tab_title"><p>아주대학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo8.png" alt=""><div class="tab_title"><p>연세대학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo9.png" alt=""><div class="tab_title"><p>경기도수원교육지원청</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo10.png" alt=""><div class="tab_title"><p>세마고등학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo11.png" alt=""><div class="tab_title"><p>화성시마을자치센터</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo12.png" alt=""><div class="tab_title"><p>경기도연천교육지원청</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo13.png" alt=""><div class="tab_title"><p>경희대학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo14.png" alt=""><div class="tab_title"><p>국립환경과학원</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo15.png" alt=""><div class="tab_title"><p>한세대학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo16.png" alt=""><div class="tab_title"><p>안양대학교</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo17.png" alt=""><div class="tab_title"><p>경기도안양과천교육지원청</p></div></a></li>
+                            <li><a href="#none"><img src="./img/content2_logo18.png" alt=""><div class="tab_title"><p>수원시글로벌평생학습관</p></div></a></li>
+                        </ul> -->
+                    </div>
+                    <div class="tab3 tab_wrap">
+                        <ul>
+                            <li><a target="_blank" href="./img/content3_img1.jpg"><img src="./img/content3_img1.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img2.jpg"><img src="./img/content3_img2.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img3.png"><img src="./img/content3_img3.png" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img4.jpg"><img src="./img/content3_img4.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img5.jpg"><img src="./img/content3_img5.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img6.jpg"><img src="./img/content3_img6.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img7.jpg"><img src="./img/content3_img7.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img8.jpg"><img src="./img/content3_img8.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img9.jpg"><img src="./img/content3_img9.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img10.jpg"><img src="./img/content3_img10.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img11.png"><img src="./img/content3_img11.png" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img12.jpg"><img src="./img/content3_img12.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img13.jpg"><img src="./img/content3_img13.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img14.jpg"><img src="./img/content3_img14.jpg" alt=""></a></li>
+                            <li><a target="_blank" href="./img/content3_img15.jpg"><img src="./img/content3_img15.jpg" alt=""></a></li>
+                        </ul>
+                    </div>
+                    <div class="tab4 tab_wrap">
+                        <ul>
+                            <li>
+                                <a href="#none">
+                                    <img src="./img/site_img1.jpg" alt="">
+                                    <div class="tab_title"><p>파리바게트</p></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#none">
+                                    <img src="./img/site_img2.jpg" alt="">
+                                    <div class="tab_title"><p>AOMG</p></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#none">
+                                    <img src="./img/site_img3.jpg" alt="">
+                                    <div class="tab_title"><p>한국문화재재단</p></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#none">
+                                    <img src="./img/site_img4.png" alt="">
+                                    <div class="tab_title"><p>FILA</p></div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#none">
+                                    <img src="./img/site_img5.jpg" alt="">
+                                    <div class="tab_title"><p>농심</p></div>
+                                </a>
+                            </li>
+                            <li></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="content_box content3" id="content3" data-aos="fade-up" data-aos-duration="800">
+                <div class="content_wrap" style="padding: 0 0 50px 0;">
+                    <div class="content_tit">
+                        <h2>CONTACT</h2>
+                        <span>-</span>
+                        <p>저의 포트폴리오 사이트에 방문해 주셔서 감사합니다.<br>아래연락처로 언제든지 연락 바랍니다. 감사합니다.</p>
+                    </div>
+                    <div class="content3_cont">
+                        <div class="content3_logo">
+                            <img src="./img/white_logo.png" alt="" width="150">
+                        </div>
+                        <div class="content3_me">
+                            <ul>
+                                <li><img src="./img/white_home.png" width="20" alt=""> 경기도 안양시 거주</li>
+                                <li><a href="#none"><img src="./img/white_mail.png" width="20" alt=""> ywcho9750@naver.com</a></li>
+                                <li><img src="./img/white_call.png" width="20" alt=""> 010-3918-3171</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer">
+                    <p>© Copyright 2021 - 2022 YounG.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
