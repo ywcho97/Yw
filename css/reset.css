@@ -1,0 +1,12 @@
+*{margin: 0; padding: 0; border:0; font-family: "Noto Sans KR","나눔 고딕",sans-serif,arial;}
+body{overflow-x: hidden;}
+img{border: 0; vertical-align: middle;}
+ul,li,ol{list-style: none; margin: 0; padding: 0;}
+.cf:after{content:""; display: block; clear: both;}
+a{text-decoration: none; color: #000;}
+h1,h2,h3,h4,h5,h6{color: #000}
+@import url(//fonts.googleapis.com/earlyaccess/notosanskr.css);
+
+.notosanskr * { 
+ font-family: 'Noto Sans KR', sans-serif;
+}
